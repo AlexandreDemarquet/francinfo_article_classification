@@ -12,7 +12,7 @@ import sys
 categorie = sys.argv[1]
 
 base_url = f"https://www.francetvinfo.fr/{categorie}/"
-output_dir = f"../../data_brute_html/{categorie}"
+output_dir = f"../data_brute_html/{categorie}"
 os.makedirs(output_dir, exist_ok=True)
 visited_urls = set()
 
@@ -57,4 +57,4 @@ def crawl(url, max_pages=50):
 
         time.sleep(2)
 
-crawl(base_url, max_pages=50)
+crawl(base_url, max_pages=2)
