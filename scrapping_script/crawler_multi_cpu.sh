@@ -6,7 +6,7 @@ CATEGORIES=("monde" "environnement" "europe" "societe" "politique" "sport" "cult
 # Boucle sur chaque catégorie et exécution en arrière-plan avec &
 for CATEGORIE in "${CATEGORIES[@]}"; do
     echo "Lancement du crawler pour la catégorie : $CATEGORIE en arrière-plan"
-    python3 crawler.py "$CATEGORIE" &
+    python3 crawler2.py "$CATEGORIE" &
 
     # Capture le PID de la tâche en arrière-plan
     PID=$!
