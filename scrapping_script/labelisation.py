@@ -1,11 +1,11 @@
 import os
 from bs4 import BeautifulSoup
 import pandas as pd
-
+from tqdm import tqdm
 doc_final = pd.DataFrame(columns=['Id','Titre', 'Label'])
-liste_categories = ['culture', 'environnement', 'europe', 'meteo', 'monde', 'politique', 'sante', 'societe', 'sport']
+liste_categories = ['culture', 'environnement', 'europe', 'meteo', 'monde', 'politique', 'sante', 'societe', 'sports']
 
-for categ in liste_categories:
+for categ in tqdm(liste_categories):
 # Dossier contenant les fichiers HTML
     input_dir = "../data_brute_html/" + categ
 
@@ -36,7 +36,7 @@ for categ in liste_categories:
         return "Titre non trouvé"
 
     # Parcourir chaque fichier dans le dossier
-    for filename in os.listdir(input_dir):
+    for filename in tqdm( os.listdir(input_dir)):
         # Vérifier que le fichier a une extension .html
         if filename.endswith(".html"):
             file_path = os.path.join(input_dir, filename)
@@ -54,6 +54,12 @@ for categ in liste_categories:
             
             # Extraire le titre en utilisant la fonction extract_title
             title = extract_title(soup)
+
+            if "\n" in title:
+                if ":" in title.split("\n")[0] :
+                    title = title.split("\n")[-1]
+                else:
+                    title = title.split("\n")[0]
             
             # Extraire le contenu de l'article en cherchant les balises <p>
             article_content = soup.find_all("p")
@@ -72,4 +78,4 @@ for categ in liste_categories:
 
 
 # Exporter le DataFrame en fichier CSV
-doc_final.to_csv('donnees_labelisees.csv', index=False)
+doc_final.to_csv('donnees_labelisees_test.csv', index=False)
