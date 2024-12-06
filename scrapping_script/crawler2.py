@@ -68,6 +68,6 @@ def crawl(url, max_pages=50):
             if base_url in full_url and clean_full_url not in visited_urls:
                 urls_to_crawl.append(full_url)
 
-        time.sleep(2)
+        time.sleep(1)
 
-crawl(base_url, max_pages=10)
+crawl(base_url, max_pages=800)
