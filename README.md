@@ -9,4 +9,4 @@ On crawl dans une page franceinfo et on telecharge toutes les pages html en mult
 
 qui enregistre en parallèles dans un dossier data_brute_html les html
 
-on peut extraire les titres de chaque page html avec le fichier python extraction_titre_html_file.py ou dans l'exemple il extrait les titres de pages html enregistré dans la categorie monde. 
+on peut extraire les titres de chaque page html avec le fichier python extraction_titre_html_file.py ou dans l'exemple il extrait les titres de pages html enregistré dans la categorie monde.  

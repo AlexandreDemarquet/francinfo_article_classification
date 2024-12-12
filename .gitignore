@@ -1,1 +1,5 @@
 saved_model
+data_brute_html/
+scrapping_script/donnees_3600_sans_doublons.csv
+scrapping_script/donnees_labelisees_test.csv
+scrapping_script/donnees_labelisees.csv
